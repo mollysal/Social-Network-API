@@ -3,9 +3,9 @@ const { format_date, format_time } = require('../utils/helper');
 
 const reactionSchema = new Schema (
     {
-        reactionID: {
-            type: Schema.Types.ObjectID,
-            default: () => new Types.ObjectID(),
+        reactionId: {
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId(),
         },
         reactionBody: {
             type: String,

@@ -11,6 +11,7 @@ module.exports = {
     getSingleThought(req, res) {
         Thought.findOne(
             { _id: req.params.thoughtId }
+
         )
             .then((thought) =>
                 !thought

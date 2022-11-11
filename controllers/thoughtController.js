@@ -60,7 +60,7 @@ module.exports = {
                     ? res.status(404).json({ message: 'No Thought found with that ID' })
                     : res.json(thought)
             )
-            .then(() => res.json({ message: 'Thought & associated users deleted' }))
+            .then(() => res.json({ message: 'Thought deleted.' }))
             .catch((err) => res.status(500).json(err));
     },
     // Create (POST) reaction in single thought's reaction array
@@ -85,11 +85,11 @@ module.exports = {
             { $pull: { reactions: { reactionId: req.params.reactionId } } },
             { runValidators: true, new: true }
         )
-        .then((thought) =>
-        !thought
-          ? res.status(404).json({ message: 'No Thought found with that ID!' })
-          : res.json(thought)
-      )
-      .catch((err) => res.status(500).json(err));
+            .then((thought) =>
+                !thought
+                    ? res.status(404).json({ message: 'No Thought found with that ID!' })
+                    : res.json(thought)
+            )
+            .catch((err) => res.status(500).json(err));
     }
 }
